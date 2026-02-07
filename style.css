@@ -1,0 +1,182 @@
+/* Reset & basics */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #fff0f6;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Heart Background Animation */
+.heart-background {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, #ffb6c1, #f08080);
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Create multiple floating hearts */
+.heart-background::before,
+.heart-background::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url('https://i.postimg.cc/cLw7XK9y/heart.png');
+  background-repeat: repeat;
+  background-size: 40px 40px;
+  animation: floatHearts 30s linear infinite;
+  opacity: 0.15;
+}
+
+.heart-background::after {
+  animation-delay: 15s;
+  background-size: 60px 60px;
+  opacity: 0.1;
+}
+
+@keyframes floatHearts {
+  0% {background-position: 0 0;}
+  100% {background-position: 0 1000px;}
+}
+
+/* Main container */
+.container {
+  position: relative;
+  max-width: 600px;
+  margin: 60px auto 40px auto;
+  background: rgba(255 255 255 / 0.3);
+  border-radius: 20px;
+  padding: 40px 30px 50px 30px;
+  box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+  z-index: 10;
+  text-align: center;
+  color: #b0005e;
+}
+
+/* Intro heading */
+.intro h1 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 4.5rem;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 6px rgba(255, 105, 180, 0.7);
+}
+
+/* Start button */
+#start-btn {
+  background: #ff6699;
+  color: white;
+  border: none;
+  padding: 20px 70px;
+  font-size: 1.6rem;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255, 102, 153, 0.6);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#start-btn:hover {
+  background: #ff4f8e;
+  transform: scale(1.1);
+}
+
+/* Questions container */
+.questionnaire {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+/* Question text */
+.question p {
+  font-family: 'Amatic SC', cursive;
+  font-size: 3.5rem;
+  margin-bottom: 50px;
+  color: #c71585;
+  text-shadow: 2px 2px 5px rgba(255, 20, 147, 0.6);
+}
+
+/* Answer buttons big and side by side */
+.answer-btn {
+  display: inline-block;
+  background: #ff66a3;
+  color: white;
+  border: none;
+  font-size: 2.2rem;
+  padding: 25px 90px;
+  margin: 0 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(255, 20, 147, 0.5);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.answer-btn:hover {
+  background: #ff3b7a;
+  transform: scale(1.08);
+}
+
+/* Final answer container */
+.final-answer {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: #ff4f8e;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+/* Wrong answer shake animation */
+.wrong {
+  font-size: 3.5rem;
+  color: #ff4f8e;
+  font-weight: 900;
+  animation: shake 0.4s infinite;
+  margin-bottom: 25px;
+}
+
+.sad {
+  font-size: 6rem;
+  margin-bottom: 25px;
+}
+
+.restart-btn {
+  margin-top: 25px;
+  background-color: #ff6fa5;
+  font-size: 1.3rem;
+  padding: 18px 50px;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 111, 165, 0.8);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.restart-btn:hover {
+  background-color: #ff4f8e;
+  transform: scale(1.12);
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Image styling for gifs */
+.final-answer img {
+  max-width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(255, 20, 147, 0.5);
+  margin-bottom: 20px;
+}
